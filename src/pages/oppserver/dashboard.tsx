@@ -1,63 +1,16 @@
 import { Card, CardBody, CardHeader, CardFooter } from '@paljs/ui/Card';
 import Row from '@paljs/ui/Row';
 import Col from '@paljs/ui/Col';
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from 'Layouts';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Table from 'react-bootstrap/Table';
 
-import { Fetcher } from 'components/Fetcher';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-
-export default function Cards(props: any) {
+export default function Cards() {
   const interval = 30000;
-  const { isLoading, isIdle, isFetching, error, data } = useQuery(
+  const { isLoading, isFetching, data } = useQuery(
     'USDT_p2p',
     () => fetch('/api/v1/binance').then((res) => res.json()),
     {
@@ -115,7 +68,7 @@ export default function Cards(props: any) {
             <CardHeader>Binance p2p Prices 1000 USD equivalent</CardHeader>
             <CardBody>
               {isLoading && <>Loading...</>}
-              {error && <>{JSON.stringify(error, null, 2)}</>}
+              {/* {error && <>{JSON.stringify(error, null, 2)}</>} */}
               {!isLoading && (
                 <Table striped bordered hover>
                   <thead>
@@ -213,7 +166,7 @@ export default function Cards(props: any) {
             <CardFooter>
               Status: {!isFetching && <>Idle</>}
               {isFetching && <>Fetching..</>}
-              {error && <>{error.message}</>}
+              {/* {error && <>{error.message}</>} */}
             </CardFooter>
           </Card>
         </Col>
