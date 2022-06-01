@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     //"checkJs": true,
-    "alwaysStrict": true,
+    "alwaysStrict": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": false,
     "isolatedModules": true,
@@ -15,9 +15,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
+    "noImplicitAny": false,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
+    "useUnknownInCatchVariables": false,
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"]
